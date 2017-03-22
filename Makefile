@@ -408,6 +408,7 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -Wno-format-security \
 		   -Wno-discarded-array-qualifiers \
 		   -Wno-return-local-addr \
+		   -mcpu=cortex-a53 -mtune=cortex-a53 \
 		   -std=gnu89
 
 KBUILD_AFLAGS_KERNEL :=
