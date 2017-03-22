@@ -48,6 +48,9 @@ FUNC_PACK()
 		FUNC_PRINT "Start Packing"
 		cp -r $ANYKERNEL_DIR/* $TEMP_DIR
 		cp $BUILDING_DIR/arch/arm64/boot/Image.gz-dtb $TEMP_DIR/zImage-dtb
+        mkdir $TEMP_DIR/modules
+        find . -type f -name "*.ko" | xargs cp -t $TEMP_DIR/modules
+        find $TEMP_DIR -iname "*.ko" -exec /home/msdx321/workspace/android/toolchains/linaro-4.9.4/bin/aarch64-linux-gnu-strip --strip-debug {} \;
 		cd $TEMP_DIR
 		zip -r9 mKernel.zip ./*
 		mv mKernel.zip $OUT_DIR/mKernel-$DATE.zip
