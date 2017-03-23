@@ -9,7 +9,7 @@ BUILDING_DIR=$OUT_DIR/kernel_obj
 JOB_NUMBER=`grep processor /proc/cpuinfo|wc -l`
 DATE=`date +%m-%d-%H:%M`
 
-CROSS_COMPILER=/home/msdx321/workspace/android/toolchains/linaro-4.9.4/bin/aarch64-linux-gnu-
+CROSS_COMPILER=/home/msdx321/workspace/android/toolchains/linaro-5.4.1/bin/aarch64-linux-gnu-
 
 ANYKERNEL_DIR=$ROOT_DIR/misc/anykernel2
 TEMP_DIR=$OUT_DIR/temp
