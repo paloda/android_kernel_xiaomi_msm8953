@@ -123,6 +123,8 @@ static DEFINE_PER_CPU(struct ip_cpu_info, ip_info);
 
 #if defined(CONFIG_ARCH_MSM8994) || defined(CONFIG_ARCH_MSM_8996)
 #define THREAD_CAPACITY (520 - CAPACITY_RESERVE)
+#elif defined(CONFIG_ARCH_MSM8937) || defined(CONFIG_ARCH_MSM_8953)
+#define THREAD_CAPACITY (450 - CAPACITY_RESERVE)
 #elif defined(CONFIG_ARCH_APQ8084) || defined(CONFIG_ARM64)
 #define THREAD_CAPACITY (430 - CAPACITY_RESERVE)
 #elif defined(CONFIG_ARCH_MSM8960) || defined(CONFIG_ARCH_APQ8064) || \
