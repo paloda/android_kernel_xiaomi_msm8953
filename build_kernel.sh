@@ -9,12 +9,12 @@ BUILDING_DIR=$OUT_DIR/kernel_obj
 JOB_NUMBER=`grep processor /proc/cpuinfo|wc -l`
 DATE=`date +%m-%d-%H:%M`
 
-CROSS_COMPILER=/home/msdx321/workspace/android/toolchains/linaro-5.4.1/bin/aarch64-linux-gnu-
+CROSS_COMPILER=/home/paloda/android/android_kernel_xiaomi_msm8953/toolchains/aarch64-linux-android-4.9/bin/aarch64-linux-android-
 
 ANYKERNEL_DIR=$ROOT_DIR/misc/anykernel2
 TEMP_DIR=$OUT_DIR/temp
 
-DEFCONFIG=$1
+DEFCONFIG=markw_defconfig
 
 FUNC_PRINT()
 {
@@ -50,7 +50,7 @@ FUNC_PACK()
 		cp $BUILDING_DIR/arch/arm64/boot/Image.gz-dtb $TEMP_DIR/zImage-dtb
         mkdir $TEMP_DIR/modules
         find . -type f -name "wlan.ko" | xargs cp -t $TEMP_DIR/modules
-        find $TEMP_DIR -iname "wlan.ko" -exec /home/msdx321/workspace/android/toolchains/linaro-5.4.1/bin/aarch64-linux-gnu-strip --strip-debug {} \;
+        find $TEMP_DIR -iname "wlan.ko" -exec /home/paloda/android/android_kernel_xiaomi_msm8953/toolchains/aarch64-linux-android-4.9/bin/aarch64-linux-strip --strip-debug {} \;
 		cd $TEMP_DIR
 		zip -r9 mKernel.zip ./*
 		mv mKernel.zip $OUT_DIR/mKernel-$DATE.zip
